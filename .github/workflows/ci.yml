@@ -10,7 +10,7 @@ jobs:
     # GitHub's macOS runners are VMs without Neural Engine access, so CI only
     # builds everything and runs the pure unit tests. The hardware tests
     # (tests/hardware.rs, python/tests) must be run locally on Apple Silicon.
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
