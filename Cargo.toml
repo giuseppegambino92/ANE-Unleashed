@@ -1,0 +1,38 @@
+[package]
+name = "ane_unleashed"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Run columnar filters, multi-pattern byte scans and multi-channel FIR filters on the Apple Neural Engine via in-memory MIL"
+repository = "https://github.com/giuseppegambino92/ANE-Unleashed"
+readme = "README.md"
+build = "build.rs"
+
+[lib]
+name = "ane_unleashed"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+rayon = "1"
+aho-corasick = "1"
+memchr = "2"
+realfft = "3"
+libc = "0.2"
+half = "2"
+
+[build-dependencies]
+cc = "1"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+debug = 1
+
+[[bin]]
+name = "ane-top"
+path = "src/bin/ane_top.rs"
+
+[[bin]]
+name = "ane-bench"
+path = "src/bin/ane_bench.rs"

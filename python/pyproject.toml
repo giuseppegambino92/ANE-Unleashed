@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ane_unleashed"
+version = "0.1.0"
+description = "Columnar filters, multi-pattern byte scans and FIR filters on the Apple Neural Engine"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22"]
+
+[tool.setuptools.package-data]
+ane_unleashed = ["libane_unleashed.dylib"]
